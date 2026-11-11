@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="API Test Suite" verbose="1" parallel="false">
+
+    <listeners>
+        <listener class-name="base.ExtentReportListener"/>
+    </listeners>
+
+    <test name="TixSplit Event Tests">
+        <classes>
+            <class name="tests.eventTest.CreateEventTest"/>
+            <class name="tests.eventTest.GetEventTest"/>
+            <class name="tests.eventTest.UpdateEventTest"/>
+        </classes>
+    </test>
+
+
+    <test name="TixSplit SplitBill Tests">
+        <classes>
+            <class name="tests.splitBillTest.CreateSplitBillTest"/>
+            <class name="tests.splitBillTest.GetSplitBillTest"/>
+            <class name="tests.splitBillTest.UpdateSplitBillTest"/>
+        </classes>
+    </test>
+
+
+</suite>

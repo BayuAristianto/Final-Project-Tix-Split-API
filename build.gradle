@@ -1,0 +1,34 @@
+plugins {
+    id 'java'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.testng:testng:7.10.2'
+    testImplementation 'org.hamcrest:hamcrest:2.2'
+    testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.18.0'
+    testImplementation 'io.rest-assured:rest-assured:5.3.1'
+    testImplementation 'com.aventstack:extentreports:5.1.2'
+    implementation 'org.json:json:20230227'
+    implementation 'org.apache.poi:poi:5.2.3'
+    implementation 'org.apache.poi:poi-ooxml:5.2.3'
+    implementation 'org.apache.commons:commons-lang3:3.12.0'
+}
+
+test {
+    useTestNG {
+        def suiteName = System.getProperty("suite", "testng")
+        suites "src/test/java/runner/${suiteName}.xml"
+    }
+
+    testLogging {
+        showStandardStreams = true    // tampilkan log test di console
+        events "passed", "skipped", "failed" // tampilkan event penting
+    }
+}
